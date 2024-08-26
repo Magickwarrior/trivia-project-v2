@@ -1,16 +1,16 @@
 .trivia-game {
-    /*font-family: monstserrat, sans-serif;*/
-    margin: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
     padding: 20px;
-    max-width: 300px;
+    max-width: 500px;
     text-align: center;
     font-size: 15px;
     background:#090b0bc2;
     color: #fff;
-    
-}
+}    
 
-.question-card {
+.game-card {
     margin-bottom: 18px;
     color:rgb(255, 140, 0);
     font-size: 15px;
@@ -22,10 +22,11 @@
 }
 
 .answer {
-    cursor: help;
+    background:#575c5cc2;
+    cursor: pointer;
     user-select: none;
     transition: filter 0.5s;
-    filter: blur(80px);
+    filter: blur(50px);
     margin-top: 0.8rem;
 }
 
@@ -46,7 +47,7 @@ button {
   
 }
 
-.score-section {
+.score {
     margin-top: 20px;
     font-size: 20px;
 }

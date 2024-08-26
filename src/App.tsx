@@ -1,4 +1,3 @@
-/*import React from "react";*/
 import TriviaGame from "./components/TriviaGame";
 import "./TriviaGame.css";
 
