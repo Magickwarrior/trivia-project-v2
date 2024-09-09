@@ -71,6 +71,9 @@ function TriviaGame() {
 
   const nextQuestion = () => {
     const nextQuestionIndex = currentQuestionIndex + 1;
+    if (isAnswerVisible) {
+      setIsAnswerVisible(!isAnswerVisible);
+    }
     if (nextQuestionIndex < triviaQuestions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
@@ -83,6 +86,9 @@ function TriviaGame() {
 
   const previousQuestion = () => {
     const prevQuestionIndex = currentQuestionIndex - 1;
+    if (isAnswerVisible) {
+      setIsAnswerVisible(!isAnswerVisible);
+    }
     if (prevQuestionIndex >= 0) {
       setCurrentQuestionIndex(prevQuestionIndex);
     }
