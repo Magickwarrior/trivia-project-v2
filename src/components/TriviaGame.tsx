@@ -4,6 +4,8 @@ import GameCard from "./GameCard";
 function TriviaGame() {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
+  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  let answerClass = "answer" + (isAnswerVisible ? " visible" : "");
 
   const triviaQuestions = [
     { question: "Who was Zeus' father?", answer: "Kronus" },
@@ -53,9 +55,17 @@ function TriviaGame() {
     },
   ];
 
+  const onRevelAnswer = () => {
+    setIsAnswerVisible(!isAnswerVisible);
+    /*setTimeout(() => setIsAnswerVisible(false), 1500);*/
+  };
+
   const handleCorrectAnswer = () => {
     // Update the score if the answer is correct
     setScore((prevScore) => prevScore + 1);
+    if (isAnswerVisible) {
+      setIsAnswerVisible(!isAnswerVisible);
+    }
     nextQuestion();
   };
 
@@ -91,6 +101,8 @@ function TriviaGame() {
         question={triviaQuestions[currentQuestionIndex].question}
         answer={triviaQuestions[currentQuestionIndex].answer}
         onCorrectAnswer={handleCorrectAnswer}
+        answerClass={answerClass}
+        onRevelAnswer={onRevelAnswer}
       />
       <button onClick={previousQuestion} disabled={currentQuestionIndex === 0}>
         Previous

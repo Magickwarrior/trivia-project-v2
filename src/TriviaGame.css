@@ -28,6 +28,9 @@
     transition: filter 0.5s;
     filter: blur(50px);
     margin-top: 0.8rem;
+    /* To hold the space when hidden*/
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .answer.visible {

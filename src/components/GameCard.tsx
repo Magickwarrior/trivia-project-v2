@@ -3,24 +3,22 @@ import { useState } from "react";
 interface Props {
   question: string;
   answer: string;
+  answerClass: string;
   onCorrectAnswer: () => void;
+  onRevelAnswer: () => void;
 }
 
-const GameCard = ({ question, answer, onCorrectAnswer }: Props) => {
-  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
-  let answerClass = "answer" + (isAnswerVisible ? " visible" : "");
-
+const GameCard = ({
+  question,
+  answer,
+  answerClass,
+  onCorrectAnswer,
+  onRevelAnswer,
+}: Props) => {
   return (
     <div className="game-card">
       <h2>{question}</h2>
-      <div
-        id="answer"
-        className={answerClass}
-        onClick={() => {
-          setIsAnswerVisible(!isAnswerVisible);
-          setTimeout(() => setIsAnswerVisible(false), 1500);
-        }}
-      >
+      <div id="answer" className={answerClass} onClick={onRevelAnswer}>
         {answer}
       </div>
       <button onClick={onCorrectAnswer}>Yep!</button>
