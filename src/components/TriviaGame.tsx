@@ -54,6 +54,9 @@ function TriviaGame() {
       answer: "Demigods",
     },
   ];
+  function hideAnswer() {
+    isAnswerVisible && setIsAnswerVisible(!isAnswerVisible);
+  }
 
   const onRevelAnswer = () => {
     setIsAnswerVisible(!isAnswerVisible);
@@ -63,17 +66,14 @@ function TriviaGame() {
   const handleCorrectAnswer = () => {
     // Update the score if the answer is correct
     setScore((prevScore) => prevScore + 1);
-    if (isAnswerVisible) {
-      setIsAnswerVisible(!isAnswerVisible);
-    }
+    hideAnswer();
+
     nextQuestion();
   };
 
   const nextQuestion = () => {
     const nextQuestionIndex = currentQuestionIndex + 1;
-    if (isAnswerVisible) {
-      setIsAnswerVisible(!isAnswerVisible);
-    }
+    hideAnswer();
     if (nextQuestionIndex < triviaQuestions.length) {
       setCurrentQuestionIndex(nextQuestionIndex);
     } else {
@@ -86,15 +86,14 @@ function TriviaGame() {
 
   const previousQuestion = () => {
     const prevQuestionIndex = currentQuestionIndex - 1;
-    if (isAnswerVisible) {
-      setIsAnswerVisible(!isAnswerVisible);
-    }
+    hideAnswer();
     if (prevQuestionIndex >= 0) {
       setCurrentQuestionIndex(prevQuestionIndex);
     }
   };
 
   const resetGame = () => {
+    hideAnswer();
     setCurrentQuestionIndex(0);
     setScore(0);
     // Reset any other state variables if necessary
